@@ -2,14 +2,15 @@
   "expo": {
     "name": "Pokedex",
     "slug": "Pokedex",
+    "scheme": "pokedex",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/PokemonLogo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#3b4cca"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,12 +20,20 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/PokemonLogo.png",
+        "backgroundColor": "#3b4cca"
       }
     },
+    "androidNavigationBar": {
+      "visible": "sticky-immersive"
+    },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ]
   }
 }
