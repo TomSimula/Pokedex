@@ -14,7 +14,7 @@ import {
   } from '@gluestack-ui/themed';
   import { X } from 'lucide-react-native';
   import React from 'react';
-import { useTranslation } from 'react-i18next';
+  import { useTranslation } from 'react-i18next';
   import { ViewProps } from 'react-native';
   
   export interface IModalWrapperProps extends ViewProps {
@@ -29,7 +29,7 @@ import { useTranslation } from 'react-i18next';
   
     const { title, isOpen, onClose, mainButton, hasCancelButton, children } = props;
   
-    const { t } = useTranslation();
+    const { t } = useTranslation(['common']);
 
     return (
       <Modal isOpen={isOpen} onClose={onClose}>

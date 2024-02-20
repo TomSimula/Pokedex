@@ -3448,6 +3448,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
   integrity sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==
 
+"@types/lodash@^4.14.202":
+  version "4.14.202"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.202.tgz#f09dbd2fb082d507178b2f2a5c7e74bd72ff98f8"
+  integrity sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==
+
 "@types/node@*":
   version "20.11.16"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.16.tgz#4411f79411514eb8e2926f036c86c9f0e4ec6708"
@@ -7085,11 +7090,6 @@ react-native-screens@~3.29.0:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
-
-react-native-sqlite-storage@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-sqlite-storage/-/react-native-sqlite-storage-6.0.1.tgz#ce6a6b852f07abbea68658d5363818c8bef45dfb"
-  integrity sha512-1tDFjrint6X6qSYKf3gDyz+XB+X79jfiL6xTugKHPRtF0WvqMtVgdLuNqZunIXjNEvNtNVEbXaeZ6MsguFu00A==
 
 react-native-svg@14.1.0:
   version "14.1.0"

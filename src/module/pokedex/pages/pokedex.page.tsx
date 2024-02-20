@@ -1,12 +1,12 @@
 
-import { Box, HStack, Text, Image, Card, Icon, ChevronRightIcon, Center, Spinner } from '@gluestack-ui/themed';
+import { Box, Text, Center, Spinner } from '@gluestack-ui/themed';
 import React, { useEffect } from 'react';
-import { Pokemon } from '~src/model/pokemon.model';
-import { ListRenderItem, TouchableOpacity, FlatList } from 'react-native';
-import { Link } from 'expo-router';
-import { useAppDispatch, useAppSelector } from '~src/redux/store/store.hook';
-import { fetchPokedex } from '~src/redux/slice/pokedexSlice';
-import PokemonModalForm from '~src/module/modal/pokemonModalForm.component';
+import { Pokemon } from '~src/module/pokedex/model/pokemon.model';
+import { ListRenderItem, FlatList } from 'react-native';
+import { useAppDispatch, useAppSelector } from '~src/store/store.hook';
+import { fetchPokedex } from '~src/module/pokedex/slices/pokedexSlice';
+import PokemonModalForm from '~src/module/pokedex/components/modal/pokemonModalForm.component';
+import PokedexPokemonItem from '../components/pokedex/pokedexPokemonItem.component';
 
 
 const PokedexPage: React.FC = () => {
@@ -24,27 +24,7 @@ const PokedexPage: React.FC = () => {
         }
     }
 
-    interface IPokemonItem {
-        prop: Pokemon;
-      }
-
-    const PokemonItem: React.FC<IPokemonItem> = ({ prop }) => (
-        <Link href={{pathname: "/pokemonDetails", params: { id: prop.id }}} asChild>
-            <TouchableOpacity>
-                <Card m="$2" borderColor='$black' borderWidth='$4'>
-                    <HStack alignItems='center'>
-                        <Image source={{uri: prop.image}} alt=''/>
-                        <Text ml="$2" textTransform='capitalize'>{prop.name}</Text>
-                        <Box alignItems='flex-end' flexGrow={1}>
-                            <Icon as={ChevronRightIcon} size='xl'/>
-                        </Box>
-                    </HStack>
-                </Card>
-            </TouchableOpacity>
-        </Link>
-    )
-
-    const RenderPokemonItem: ListRenderItem<Pokemon> = ({ item }) => <PokemonItem prop={item}/>;
+    const renderPokemonItem: ListRenderItem<Pokemon> = ({ item }) => <PokedexPokemonItem prop={item}/>;
 
   return (
     <>
@@ -54,10 +34,10 @@ const PokedexPage: React.FC = () => {
                 : */error ? <Center><Text>{error}</Text></Center> 
                 : <FlatList
                     data={pokedex}
-                    renderItem={RenderPokemonItem}
+                    renderItem={renderPokemonItem}
                     onEndReachedThreshold={0.5}
                     onEndReached={handleEndFlatList}
-                    ListFooterComponent={() => isLoading?<Spinner size="large" color="$yellow300"/>:<></>}
+                    ListFooterComponent={() => isLoading?<Spinner size="large" color="$yellow300"/>:null}
                 />
             }
         </Box>

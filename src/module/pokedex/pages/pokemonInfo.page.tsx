@@ -1,11 +1,11 @@
 import { Box } from '@gluestack-ui/themed';
 import { useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { PokemonInfos } from '~src/model/pokemon.model';
+import { PokemonInfos } from '~src/module/pokedex/model/pokemon.model';
 import { getPokemonInfos } from '~src/api/pokemon.api';
-import PokemonModalForm from '~src/module/modal/pokemonModalForm.component';
-import PokemonInfoProfilComponent from '../components/pokemonInfoProfil.component';
-import PokemonInfoChacteristicComponent from '../components/pokemonInfoChacteristic.component';
+import PokemonModalForm from '~src/module/pokedex/components/modal/pokemonModalForm.component';
+import PokemonInfoProfilComponent from '../components/pokemonInfo/pokemonInfoProfil.component';
+import PokemonInfoChacteristicComponent from '../components/pokemonInfo/pokemonInfoChacteristic.component';
 
 const PokemonInfoPage: React.FC = () => {
   const { id } = useLocalSearchParams();

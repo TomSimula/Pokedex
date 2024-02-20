@@ -3,8 +3,8 @@ import { Stack } from 'expo-router';
 import { Button, ButtonIcon, HStack, Switch, Text } from '@gluestack-ui/themed';
 import PokedexPage from '~src/module/pokedex/pages/pokedex.page';
 import { Plus } from 'lucide-react-native';
-import { useAppDispatch } from '~src/redux/store/store.hook';
-import { showModal } from '~src/redux/slice/pokedexSlice';
+import { useAppDispatch } from '~src/store/store.hook';
+import { showModal } from '~src/module/pokedex/slices/pokedexSlice';
 import { changeLanguage } from '~src/i18n.config';
 import { useTranslation } from 'react-i18next';
 
@@ -12,16 +12,16 @@ const Home = () => {
 
   const dispatch = useAppDispatch();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation(['pokedex']);
 
   return (
     <>
       <Stack.Screen options={{ 
-        title: t('pokedex:TITLE'),
+        title: t('pokedex:POKEDEX.TITLE'),
         headerLeft: () => (
           <HStack alignItems='center'>
             <Text color='$white'>FR</Text>
-            <Switch size="md" mr="$1" ml="$1" onValueChange={(val) => changeLanguage(val? 'en' : 'fr')}/>
+            <Switch size="md" mx="$1" onValueChange={(val) => changeLanguage(val? 'en' : 'fr')}/>
             <Text color='$white'>EN</Text>
           </HStack>
         ),

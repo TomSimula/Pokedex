@@ -11,7 +11,7 @@ type ToastWrapperProps = {
 
 const ToastWrapper: React.FC<ToastWrapperProps> = ({ id, description, action }) => {
   
-  const {t} = useTranslation();
+  const {t} = useTranslation(['common']);
   
   let icon: LucideIcon;
   let title: string;

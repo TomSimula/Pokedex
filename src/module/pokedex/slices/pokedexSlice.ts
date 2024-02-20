@@ -1,12 +1,13 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Pokemon } from "../../model/pokemon.model";
-import { getPokedex } from "../../api/pokemon.api";
+import { Pokemon } from "../model/pokemon.model";
+import { getPokedex } from "../../../api/pokemon.api";
+import { remove } from "lodash";
 
 type State = {
     pokedex: Pokemon[];
     pointer: number;
     isLoading: boolean;
-    error: string;
+    error?: string;
     isModal: boolean;
   };
 
@@ -14,7 +15,7 @@ const initialState: State = {
     pokedex: [],
     pointer: 0,
     isLoading: false,
-    error: '',
+    error: undefined,
     isModal: false,
 };
 
@@ -35,13 +36,11 @@ const pokedexSlice = createSlice({
             if (index) {
                 state.pokedex[index] = action.payload;
             } else {
-                console.log("Erreur, pokemon pas trouver");
+                state.error = "Error"
             }
         },
         removePokemon: (state, action:PayloadAction<number>) => {
-            let newPokedex: Pokemon[] = [];
-            state.pokedex.map((item) => (item.id != action.payload)?newPokedex.push(item):'');
-            state.pokedex = newPokedex;
+            state.pokedex = remove(state.pokedex, (item)=>{return item.id != action.payload});
         },
         showModal: (state, action:PayloadAction<boolean>) => {
             state.isModal = action.payload;
@@ -50,19 +49,19 @@ const pokedexSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(fetchPokedex.pending, state => {
             state.isLoading = true;
+            state.error = undefined;
         })
 
         builder.addCase(fetchPokedex.fulfilled, (state, action) => {
             state.isLoading = false;
             state.pointer += 20;
             state.pokedex = [...state.pokedex, ...action.payload];
-            state.error = '';
+            state.error = undefined;
         })
 
         builder.addCase(fetchPokedex.rejected, (state, action) => {
             state.isLoading = false;
-            state.pokedex = [];
-            state.error = action.error.message??'Error can\'t be determined';
+            state.error = action.error.message??"Error can't be determined";
         })
     }
 });

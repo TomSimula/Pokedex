@@ -2,7 +2,7 @@ import React from 'react';
 import { Stack } from 'expo-router';
 import { GluestackUIProvider } from '@gluestack-ui/themed';
 import { Provider } from 'react-redux';
-import store from '~src/redux/store/store';
+import store from '~src/store/store';
 import { gluestackUIConfig as config } from '~src/theme/gluestack-ui.config';
 import { useFonts } from 'expo-font';
 import { fontToLoad } from '~src/theme/font.theme';
