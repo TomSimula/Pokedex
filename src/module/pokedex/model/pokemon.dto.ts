@@ -9,7 +9,7 @@ export interface PokemonDto {
     name: string;
 }
 
-export const pokemonDtoToPokemons = (pokemonDTO: PokemonDto, id: number) => {
+export const pokemonDtoToPokemon = (pokemonDTO: PokemonDto, id: number) => {
     let pokemon: Pokemon = {
         id: id,
         name: pokemonDTO.name,

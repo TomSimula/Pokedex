@@ -1,5 +1,5 @@
 import React from 'react';
-import { PokemonInfos } from '~src/module/pokedex/model/pokemon.model';
+import { PokemonInfo } from '~src/module/pokedex/model/pokemonInfo.model';
 import { Box, Text, Card, HStack, TrashIcon, Button, ButtonIcon } from '@gluestack-ui/themed';
 import { useNavigation } from 'expo-router';
 import { useAppDispatch } from '~src/store/store.hook';
@@ -7,7 +7,7 @@ import { removePokemon } from '~src/module/pokedex/slices/pokedexSlice';
 import { useTranslation } from 'react-i18next';
 
 type IPokemonInfoChacteristicComponent = {
-  pokemon: PokemonInfos
+  pokemon: PokemonInfo;
 }
 
 const PokemonInfoChacteristicComponent: React.FC<IPokemonInfoChacteristicComponent> = ({ pokemon }) => {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { PokemonInfos } from '~src/module/pokedex/model/pokemon.model';
+import { PokemonInfo } from '~src/module/pokedex/model/pokemonInfo.model';
 import { Box, HStack, VStack, Text, Image, Card } from '@gluestack-ui/themed';
 import PokemonInfoInconNavComponent from './pokemonInfoIconNav.component';
 
 type IPokemonInfoProfilComponent = {
-  pokemon: PokemonInfos
+  pokemon: PokemonInfo
 }
 
 const PokemonInfoProfilComponent: React.FC<IPokemonInfoProfilComponent> = ({ pokemon }) => {

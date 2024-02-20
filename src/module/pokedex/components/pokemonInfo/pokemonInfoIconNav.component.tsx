@@ -1,10 +1,10 @@
-import {  Icon } from '@gluestack-ui/themed';
+import { Icon } from '@gluestack-ui/themed';
 import { Link } from 'expo-router';
 import { findIndex } from 'lodash';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { useAppDispatch, useAppSelector } from '~src/store/store.hook';
+import { useAppSelector } from '~src/store/store.hook';
 
 type IPokemonInfoInconNavComponent = {
     id: number,

@@ -1,6 +1,6 @@
 import { Button, ButtonText, useToast, Box, SelectItem } from '@gluestack-ui/themed';
 import React from 'react';
-import { PokemonEdit, PokemonInfos } from '~src/module/pokedex/model/pokemon.model';
+import { PokemonEdit, PokemonInfo } from '~src/module/pokedex/model/pokemon.model';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { isNil } from 'lodash';
 
 type IPokemonModalForm = {
-  pokemon?: PokemonInfos
+  pokemon?: PokemonInfo
 }
 
 const PokemonModalForm: React.FC<IPokemonModalForm> = ({ pokemon }) => {
