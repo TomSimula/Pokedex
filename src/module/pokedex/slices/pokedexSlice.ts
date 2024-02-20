@@ -2,6 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Pokemon } from "../model/pokemon.model";
 import { getPokedex } from "../../../api/pokemon.api";
 import { remove } from "lodash";
+import { useTranslation } from "react-i18next";
 
 type State = {
     pokedex: Pokemon[];
@@ -18,6 +19,8 @@ const initialState: State = {
     error: undefined,
     isModal: false,
 };
+
+const {t} = useTranslation(['pokedex']);
 
 export const fetchPokedex = createAsyncThunk(
     'pokedex/fetchPokedex',
@@ -36,7 +39,7 @@ const pokedexSlice = createSlice({
             if (index) {
                 state.pokedex[index] = action.payload;
             } else {
-                state.error = "Error"
+                state.error = t('pokedex:STORE.ERROR.POKEMON_NOT_FOUND')
             }
         },
         removePokemon: (state, action:PayloadAction<number>) => {
@@ -61,7 +64,7 @@ const pokedexSlice = createSlice({
 
         builder.addCase(fetchPokedex.rejected, (state, action) => {
             state.isLoading = false;
-            state.error = action.error.message??"Error can't be determined";
+            state.error = action.error.message??t('pokedex:STORE.ERROR.ERROR_NOT_FOUND');
         })
     }
 });

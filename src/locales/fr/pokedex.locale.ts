@@ -45,6 +45,12 @@ const pokedexFr = {
             MAX_CHARAC: 'Limité à {{max}} caractère',
         },
     },
+    STORE: {
+        ERROR: {
+            ERROR_NOT_FOUND: "L'erreur ne peut pas être déterminé",
+            POKEMON_NOT_FOUND: 'Erreur, pokemon introuvable',
+        },
+    },
 };
 
 export default pokedexFr;

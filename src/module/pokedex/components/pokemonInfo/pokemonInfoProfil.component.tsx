@@ -1,7 +1,7 @@
 import React from 'react';
 import { PokemonInfos } from '~src/module/pokedex/model/pokemon.model';
 import { Box, HStack, VStack, Text, Image, Card } from '@gluestack-ui/themed';
-import PokemonInfoInconNavComponent from './pokemonInfoInconNav.component';
+import PokemonInfoInconNavComponent from './pokemonInfoIconNav.component';
 
 type IPokemonInfoProfilComponent = {
   pokemon: PokemonInfos

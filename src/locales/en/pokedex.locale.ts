@@ -45,6 +45,12 @@ const pokedexEn = {
             MAX_CHARAC: 'Limit to {{max}} character',
         },
     },
+    STORE: {
+        ERROR: {
+            ERROR_NOT_FOUND: "Error can't be determined",
+            POKEMON_NOT_FOUND: 'Error, pokemon not found',
+        },
+    },
 };
 
 export default pokedexEn;
