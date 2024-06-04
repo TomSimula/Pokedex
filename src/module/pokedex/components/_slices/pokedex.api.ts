@@ -1,8 +1,8 @@
-import { PokemonDto, pokemonDtoToPokemon, PokemonListDto } from "~src/module/pokedex/model/pokemon.dto";
-import { PokemonInfoDto, pokemonInfoDtoToPokemonInfo} from "~src/module/pokedex/model/pokemonInfo.dto";
-import { Pokemon } from "~src/module/pokedex/model/pokemon.model";
-import { PokemonInfo } from "~src/module/pokedex/model/pokemonInfo.model";
 import axios from "axios";
+import { PokemonDto, pokemonDtoToPokemon, PokemonListDto } from "~src/module/pokedex/model/pokemon.dto";
+import { Pokemon } from "~src/module/pokedex/model/pokemon.model";
+import { PokemonInfoDto, pokemonInfoDtoToPokemonInfo } from "~src/module/pokedex/model/pokemonInfo.dto";
+import { PokemonInfo } from "~src/module/pokedex/model/pokemonInfo.model";
 
 export const getPokedex = async(offset: number, limit?: number): Promise<Pokemon[]> => {
     let pokedex: Pokemon[] = [];

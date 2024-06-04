@@ -1,16 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import pokedexReducer from "~src/module/pokedex/slices/pokedexSlice";
+import pokedexReducer from "~src/module/pokedex/components/_slices/pokedex.slice";
 
 const combinedReducer = combineReducers({
-    pokedex : pokedexReducer
+  pokedex: pokedexReducer,
 });
 
 const rootReducer = (state: any, action: any) => {
-    return combinedReducer(state, action);
-  };
+  return combinedReducer(state, action);
+};
 
 const store = configureStore({
-    reducer: rootReducer,
+  reducer: rootReducer,
 });
 
 export type AppDispatch = typeof store.dispatch;

@@ -14,10 +14,7 @@ const pokedexEn = {
             SPECIAL_DEFENSE: 'Special defense',
             SPEED: 'Speed',
         },
-        TYPES: {
-            TITLE_one: 'Type',
-            TITLE_other: 'Types',
-        },
+        TYPES: "Types"
     },
     FORM: {
         INPUT: {

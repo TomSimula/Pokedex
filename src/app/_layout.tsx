@@ -19,16 +19,7 @@ const Layout = () => {
         <SafeAreaProvider>
             <ThemeProvider value={customTheme}>
                 <GluestackUIProvider config={config}>
-                    <Stack screenOptions={{
-                        headerStyle: {
-                            backgroundColor: config.tokens.colors.bluePokemon,
-                        },
-                        headerTitleStyle: {
-                            fontFamily: 'Pokemon',
-                        },
-                        headerTitleAlign: 'center',
-                        headerTintColor: config.tokens.colors.yellow300,
-                    }}/>
+                    <Stack screenOptions={{ headerShown: false }}/>
                 </GluestackUIProvider>
             </ThemeProvider>
         </SafeAreaProvider>

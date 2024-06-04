@@ -6,6 +6,6 @@
     "paths": {
       "~assets/*": ["./assets/*"],
       "~src/*": ["./src/*"]
-    },
+    }
   }
 }
