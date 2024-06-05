@@ -18,7 +18,7 @@ import ToastWrapper from "~src/components/toast/toastWrapper.components";
 import { PokemonEdit } from "~src/module/pokedex/model/pokemon.model";
 import { useAppDispatch, useAppSelector } from "~src/store/store.hook";
 import { PokemonInfo } from "../../model/pokemonInfo.model";
-import { showModal } from "../_slices/pokedex.slice";
+import { showModal } from "../../_slices/pokedex.slice";
 
 type IPokemonModalForm = {
   pokemon?: PokemonInfo;

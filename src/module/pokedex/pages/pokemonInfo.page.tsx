@@ -3,7 +3,7 @@ import { useFocusEffect, useLocalSearchParams } from "expo-router";
 import React, { useCallback, useState } from "react";
 import PokemonModalForm from "~src/module/pokedex/components/modal/pokemonModalForm.component";
 import { PokemonInfo } from "~src/module/pokedex/model/pokemonInfo.model";
-import { getPokemonInfo } from "../components/_slices/pokedex.api";
+import { getPokemonInfo } from "../_slices/pokedex.api";
 import PokemonInfoChacteristicComponent from "../components/pokemonInfo/pokemonInfoChacteristic.component";
 import PokemonInfoProfilComponent from "../components/pokemonInfo/pokemonInfoProfil.component";
 

@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import pokedexReducer from "~src/module/pokedex/components/_slices/pokedex.slice";
+import pokedexReducer from "~src/module/pokedex/_slices/pokedex.slice";
 
 const combinedReducer = combineReducers({
   pokedex: pokedexReducer,

@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { remove } from "lodash";
 import { useTranslation } from "react-i18next";
-import { Pokemon } from "../../model/pokemon.model";
+import { Pokemon } from "../model/pokemon.model";
 import { getPokedex } from "./pokedex.api";
 
 type State = {

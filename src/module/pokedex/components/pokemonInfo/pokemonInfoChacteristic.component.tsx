@@ -12,7 +12,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { PokemonInfo } from "~src/module/pokedex/model/pokemonInfo.model";
 import { useAppDispatch } from "~src/store/store.hook";
-import { removePokemon } from "../_slices/pokedex.slice";
+import { removePokemon } from "../../_slices/pokedex.slice";
 
 type IPokemonInfoChacteristicComponent = {
   pokemon: PokemonInfo;

@@ -4,7 +4,7 @@ import { FlatList, ListRenderItem } from "react-native";
 import PokemonModalForm from "~src/module/pokedex/components/modal/pokemonModalForm.component";
 import { Pokemon } from "~src/module/pokedex/model/pokemon.model";
 import { useAppDispatch, useAppSelector } from "~src/store/store.hook";
-import { fetchPokedex } from "../components/_slices/pokedex.slice";
+import { fetchPokedex } from "../_slices/pokedex.slice";
 import PokedexPokemonItem from "../components/pokedex/pokedexPokemonItem.component";
 import { useFocusEffect } from "expo-router";
 
@@ -32,11 +32,7 @@ const PokedexPage: React.FC = () => {
   return (
     <>
       <Box flex={1}>
-        {isLoading ? (
-          <Center>
-            <Text>Loading</Text>
-          </Center>
-        ) : error ? (
+        {error ? (
           <Center>
             <Text>{error}</Text>
           </Center>
