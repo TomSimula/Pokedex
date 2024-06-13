@@ -4,17 +4,17 @@ import { useTranslation } from "react-i18next";
 import { Pokemon } from "../model/pokemon.model";
 import { getPokedex } from "./pokedex.api";
 
-type State = {
+type PokedexState = {
   pokedex: Pokemon[];
-  pointer: number;
+  offset: number;
   isLoading: boolean;
   error?: string;
   isModal: boolean;
 };
 
-const initialState: State = {
+const initialState: PokedexState = {
   pokedex: [],
-  pointer: 0,
+  offset: 0,
   isLoading: false,
   error: undefined,
   isModal: false,
@@ -24,7 +24,10 @@ const { t } = useTranslation(["pokedex"]);
 
 export const fetchPokedex = createAsyncThunk(
   "pokedex/fetchPokedex",
-  (pointer: number) => getPokedex(pointer)
+  async (offset: number) => {
+    const response = await getPokedex(offset)
+    return response;
+  }
 );
 
 const pokedexSlice = createSlice({
@@ -61,7 +64,7 @@ const pokedexSlice = createSlice({
 
     builder.addCase(fetchPokedex.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.pointer += 20;
+      state.offset += 20;
       state.pokedex = [...state.pokedex, ...action.payload];
       state.error = undefined;
     });

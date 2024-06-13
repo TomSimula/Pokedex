@@ -22,9 +22,9 @@ const PokedexPokemonItem: React.FC<IPokemonItem> = ({ prop }) => {
       asChild
     >
       <TouchableOpacity>
-        <Card m="$2" borderColor="$black" borderWidth="$4">
-          <HStack alignItems="center">
-            <Image
+        <Card m="$2" borderColor="$coolGray300" borderWidth="$4">
+            <HStack alignItems="center">
+              <Image
               source={{ uri: prop.image }}
               alt={t("pokedex:POKEDEX.ALT")}
             />
@@ -42,3 +42,4 @@ const PokedexPokemonItem: React.FC<IPokemonItem> = ({ prop }) => {
 };
 
 export default PokedexPokemonItem;
+

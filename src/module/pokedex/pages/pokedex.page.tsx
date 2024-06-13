@@ -1,33 +1,24 @@
 import { Box, Center, Spinner, Text } from "@gluestack-ui/themed";
-import React, { useCallback } from "react";
-import { FlatList, ListRenderItem } from "react-native";
+import React, { useEffect } from "react";
+import { FlatList } from "react-native";
 import PokemonModalForm from "~src/module/pokedex/components/modal/pokemonModalForm.component";
-import { Pokemon } from "~src/module/pokedex/model/pokemon.model";
 import { useAppDispatch, useAppSelector } from "~src/store/store.hook";
 import { fetchPokedex } from "../_slices/pokedex.slice";
 import PokedexPokemonItem from "../components/pokedex/pokedexPokemonItem.component";
-import { useFocusEffect } from "expo-router";
 
 const PokedexPage: React.FC = () => {
-  const { pokedex, pointer, isLoading, error } = useAppSelector(
-    (state) => state.pokedex
-  );
+  const { pokedex, offset, isLoading, error } = useAppSelector((state) => state.pokedex);
   const dispatch = useAppDispatch();
-
-  useFocusEffect(
-    useCallback(() => {
-    dispatch(fetchPokedex(pointer));
-  }, []));
+  
+  useEffect(() => {
+    dispatch(fetchPokedex(offset));
+  }, []);
 
   const handleEndFlatList = () => {
     if (!isLoading) {
-      dispatch(fetchPokedex(pointer));
+      dispatch(fetchPokedex(offset));
     }
   };
-
-  const renderPokemonItem: ListRenderItem<Pokemon> = ({ item }) => (
-    <PokedexPokemonItem prop={item} />
-  );
 
   return (
     <>
@@ -39,7 +30,7 @@ const PokedexPage: React.FC = () => {
         ) : (
           <FlatList
             data={pokedex}
-            renderItem={renderPokemonItem}
+            renderItem={({ item }) => (<PokedexPokemonItem prop={item} />)}
             onEndReachedThreshold={0.5}
             onEndReached={handleEndFlatList}
             ListFooterComponent={() =>
