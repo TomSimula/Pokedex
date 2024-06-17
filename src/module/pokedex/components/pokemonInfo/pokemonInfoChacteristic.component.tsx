@@ -7,7 +7,7 @@ import {
   Text,
   TrashIcon,
 } from "@gluestack-ui/themed";
-import { useNavigation } from "expo-router";
+import { useRouter } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { PokemonInfo } from "~src/module/pokedex/model/pokemonInfo.model";
@@ -21,14 +21,14 @@ type IPokemonInfoChacteristicComponent = {
 const PokemonInfoChacteristicComponent: React.FC<
   IPokemonInfoChacteristicComponent
 > = ({ pokemon }) => {
-  const navigator = useNavigation();
+  const router = useRouter();
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation(["pokedex"]);
 
   const deleteHandler = () => {
     dispatch(removePokemon(pokemon.id));
-    navigator.goBack();
+    router.back();
   };
 
   return (
